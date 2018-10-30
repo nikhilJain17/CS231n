@@ -1,0 +1,45 @@
+What is Image Classification?
+	- Input image
+	- Output label corresponding to image
+
+Image Classification is hard
+	- lighting differences
+	- size differences
+	- deformation
+	- viewpoint variation
+	
+It's not entirely clear how to INSTRUCT a computer to learn images
+
+It's easier to give it positive and negative examples, and teach it
+	- data-driven approach
+
+Nearest Neighbor Classifier
+	- simple and crude estimator
+	- L1 norm: subtract raw pixel data differences, pixel by pixel
+	- L2 norm: same thing but use Euclidean distance
+	- return label of image with smallest difference from test img
+
+In practice, Nearest Neighbor Classifiers are terrible for Image Classification
+	- end up classifying based on color more than anything
+
+We can marginally improve their performance with k-Nearest Neighbors
+	- instead of returning label of closest neighbor, return label of k 
+closest neighbors
+	- pick label most represented in the k closest neighbors
+
+How do you pick k?
+
+It's a hyperparameter!
+
+Don't tweak hyperparameters on test set, otherwise you will overfit to your test 
+set
+	- won't generalize well to other imgs
+
+Validation
+	- split training set into train and validation
+		- train model on train
+		- tweak hyperparameters on validation
+			- n-folds cross validation: iterate through 
+sections of training set as validation set
+
+
